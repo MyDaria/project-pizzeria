@@ -6,7 +6,7 @@
   const select = {
     templateOf: {
       menuProduct: '#template-menu-product',
-      cartProduct: '#template-cart-product', // CODE ADDED
+      cartProduct: '#template-cart-product',
     },
     containerOf: {
       menu: '#product-list',
@@ -27,12 +27,12 @@
     },
     widgets: {
       amount: {
-        input: 'input.amount', // CODE CHANGED
+        input: 'input.amount',
         linkDecrease: 'a[href="#less"]',
         linkIncrease: 'a[href="#more"]',
       },
     },
-    // CODE ADDED START
+
     cart: {
       productList: '.cart__order-summary',
       toggleTrigger: '.cart__summary',
@@ -51,7 +51,7 @@
       edit: '[href="#edit"]',
       remove: '[href="#remove"]',
     },
-    // CODE ADDED END
+
   };
   
   const classNames = {
@@ -59,24 +59,22 @@
       wrapperActive: 'active',
       imageVisible: 'active',
     },
-    // CODE ADDED START
+
     cart: {
       wrapperActive: 'active',
     },
-    // CODE ADDED END
   };
   
   const settings = {
     amountWidget: {
       defaultValue: 1,
-      defaultMin: 1,
-      defaultMax: 9,
-    }, // CODE CHANGED
-    // CODE ADDED START
+      defaultMin: 0,
+      defaultMax: 10,
+    },
+
     cart: {
       defaultDeliveryFee: 20,
     },
-    // CODE ADDED END
   };
   
   const templates = {
@@ -98,15 +96,12 @@
       thisProduct.initOrderForm();
       thisProduct.initAmountWidget();
       thisProduct.processOrder();
-      
-
 
       console.log('new Product:', thisProduct);
     }
 
     renderInMenu(){
       const thisProduct = this;
-
       const generatedHTML = templates.menuProduct(thisProduct.data);
 
       thisProduct.element = utils.createDOMFromHTML(generatedHTML);
@@ -318,8 +313,6 @@
   const app = {
     initMenu: function(){
       const thisApp = this;
-
-      //console.log('thisApp.data:', thisApp.data);
 
       for(let productData in thisApp.data.products){
         new Product(productData, thisApp.data.products[productData]);
