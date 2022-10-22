@@ -1,7 +1,7 @@
 import {select, templates} from '../settings.js';
 import AmountWidget from './AmountWidget.js';
-import HourPicker from './HourPicker.js';
 import DatePicker from './DatePicker.js';
+import HourPicker from './HourPicker.js';
 
 
 class Booking {
@@ -38,7 +38,7 @@ class Booking {
     thisBooking.dom.hourPicker.addEventListener('click', function(){});
 
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
-    thisBooking.dom.hourPicker.addEventListener('click', function(){});
+    thisBooking.dom.datePicker.addEventListener('click', function(){});
   }
 }
 
