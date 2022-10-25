@@ -98,8 +98,6 @@ class Cart {
     for (let total of thisCart.dom.totalPrice) {
       total.innerHTML = thisCart.totalPrice;
     }
-
-    //console.log('totalPrice', thisCart.totalPrice);
   }
 
   remove(CartProduct){
